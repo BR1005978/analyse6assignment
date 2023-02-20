@@ -13,3 +13,8 @@ In het PDF-bestand van de opdracht staat nog meer uitgelegd over de opdracht.
 Onze TODO bestaat uit: 
 - Het toepassen van concurrency (`threads` en `locks`)
 - Zorgen dat het hiermee sneller is dan de sequentiële versie
+
+
+### PROTIPS
+- Verander de waardes in Program.FixedParams naar een kleiner aantal zodat de quiz niet eeuwig lang duurt. Ik heb zelf alles `* 0.1` gedaan zodat het hooguit een paar seconden duurt
+- Let erop dat we geen async/await mogen gebruiken (zoals in de opdrachtomschrijving vermeld)

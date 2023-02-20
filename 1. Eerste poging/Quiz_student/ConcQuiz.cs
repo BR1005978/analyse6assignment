@@ -13,12 +13,17 @@ namespace ConcQuiz
     public class ConcQuestion : Question
     {
         //todo: add required fields, if necessary
+        private readonly object _lockObject = new object();
 
         public ConcQuestion(string txt, string tcode) : base(txt, tcode){}
 
         public override void AddAnswer(Answer a)
         {
-            //todo: implement the body 
+            // done 
+            lock (_lockObject)
+            {
+                base.AddAnswer(a);
+            }
         }
     }
 
@@ -26,26 +31,44 @@ namespace ConcQuiz
     {
         // todo: add required fields
 
+        private readonly object _lockObject = new object();
+
         public ConcStudent(int num, string name): base(num,name){}
 
         public override void AssignExam(Exam e)
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.AssignExam(e);
+            }
         }
 
         public override void StartExam()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.StartExam();
+            }
         }
 
         public override void Think()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.Think();
+            }
         }
 
         public override void ProposeAnswer()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.ProposeAnswer();
+            }
         }
 
         public override void Log(string logText = "")
@@ -57,24 +80,42 @@ namespace ConcQuiz
     public class ConcTeacher: Teacher
     {
         //todo: add required fields, if necessary
+        private readonly object _lockObject = new object();
+
 
         public ConcTeacher(string code, string name) : base(code,name){}
 
         public override void AssignExam(Exam e)
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.AssignExam(e);
+            }
         }
         public override void Think()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.Think();
+            }
         }
         public override void ProposeQuestion()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.ProposeQuestion();
+            }
         }
         public override void PrepareExam(int maxNumOfQuestions)
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.PrepareExam(maxNumOfQuestions);
+            }
         }
         public override void Log(string logText = "")
         {
@@ -84,12 +125,17 @@ namespace ConcQuiz
     public class ConcExam: Exam
     {
         //todo: add required fields, if necessary
+        private readonly object _lockObject = new object();
 
         public ConcExam(int number, string name = "") : base(number,name){}
 
         public override void AddQuestion(Teacher teacher, string text)
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.AddQuestion(teacher, text);
+            }
         }
         public override void Log(string logText = "")
         {
@@ -100,28 +146,49 @@ namespace ConcQuiz
     public class ConcClassroom : Classroom
     {
         //todo: add required fields, if necessary
+        private readonly object _lockObject = new object();
 
         public ConcClassroom(int examNumber = 1, string examName = "Programming") : base(examNumber, examName)
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.SetUp();
+            }
         }
 
         public override void SetUp()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.SetUp();
+            }
         }
 
         public override void PrepareExam(int maxNumOfQuestion)
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.PrepareExam(maxNumOfQuestion);
+            }
         }
         public override void DistributeExam()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.DistributeExam();
+            }
         }
         public override void StartExams()
         {
             //todo: implement the body
+            lock (_lockObject)
+            {
+                base.StartExams();
+            }
         }
 
         public string GetStatistics()
